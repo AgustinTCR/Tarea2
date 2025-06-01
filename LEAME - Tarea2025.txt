@@ -1,0 +1,65 @@
+LEAME - Sistema de Evaluación basado en la Taxonomía de Bloom
+==============================================================
+
+Nombre del proyecto: Tarea2025
+Lenguaje: Java
+Interfaz gráfica: Swing
+Entorno: IntelliJ IDEA 2024.3 o superior, con JDK 24.0.1
+
+CARPETAS DEL PROYECTO:
+-----------------------
+- backend: contiene toda la lógica del programa (modelo de datos, carga de ítems, evaluación).
+- frontend: contiene la interfaz gráfica del usuario (pantallas de navegación, prueba y resumen).
+
+OBJETIVO:
+---------
+Este programa permite rendir una prueba compuesta por ítems clasificados según la Taxonomía de Bloom.
+Cada ítem es de tipo Selección Múltiple o Verdadero/Falso. El sistema permite navegar las preguntas,
+responderlas, y finalmente visualizar un resumen con las respuestas ingresadas y las correctas.
+
+ALCANCES:
+---------
+- Se permiten ítems de dos tipos: SELECCION_MULTIPLE y VERDADERO_FALSO.
+- Los ítems se clasifican en los 6 niveles de la Taxonomía de Bloom: RECORDAR, ENTENDER, APLICAR, ANALIZAR, EVALUAR, CREAR.
+- Las respuestas correctas e incorrectas se identifican claramente en el resumen final con un prefijo especial.
+- Una vez finalizada la prueba, no es posible modificar las respuestas.
+- Se carga un archivo de ítems al inicio desde el explorador de archivos.
+
+SUPUESTOS:
+----------
+- El usuario cuenta con Java instalado correctamente y ejecuta el proyecto desde IntelliJ.
+- El archivo con ítems está bien formado y se carga al iniciar la aplicación.
+- Cada ítem tiene al menos 2 opciones, y una sola respuesta correcta.
+- El índice de la respuesta correcta es base 0 (es decir, la primera opción es 0, la segunda es 1, etc.).
+
+INSTRUCCIONES DE EJECUCIÓN:
+---------------------------
+1. Abrir el proyecto en IntelliJ IDEA.
+2. Asegurarse de tener configurado el SDK Java 24.0.1.
+3. Ejecutar la clase `frontend.Main`.
+4. Al iniciarse el programa, se solicitará seleccionar un archivo `.txt` con los ítems de la prueba.
+5. Una vez cargado, se mostrará la ventana de inicio. Presionar "Iniciar prueba".
+6. Responder cada pregunta presionando "Siguiente".
+7. Al finalizar, se mostrará un resumen de respuestas. Presionar "Revisar respuestas" para ver qué se respondió y cuál era la correcta.
+   - Las respuestas correctas aparecerán con el prefijo: ✔ CORRECTA:
+   - Las respuestas incorrectas aparecerán con el prefijo: ✘ INCORRECTA:
+
+FORMATO DEL ARCHIVO DE ÍTEMS:
+-----------------------------
+El archivo debe ser un `.txt` y contener una pregunta por línea con el siguiente formato:
+
+pregunta;opcion1|opcion2|opcion3;indiceCorrecto;tipo;nivel;tiempo
+
+Donde:
+- `pregunta`: texto de la pregunta.
+- `opcion1|opcion2|opcion3`: opciones separadas por el carácter `|`.
+- `indiceCorrecto`: número entero (base 0) indicando la opción correcta.
+- `tipo`: SELECCION_MULTIPLE o VERDADERO_FALSO.
+- `nivel`: uno de los siguientes (en mayúscula): RECORDAR, ENTENDER, APLICAR, ANALIZAR, EVALUAR, CREAR.
+- `tiempo`: tiempo estimado de respuesta en minutos (número entero).
+
+EJEMPLO DE UNA LÍNEA VÁLIDA:
+----------------------------
+¿Cuál es la capital de Francia?;París|Londres|Berlín|Roma;0;SELECCION_MULTIPLE;RECORDAR;30
+
+
